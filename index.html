@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- JAEWON AI LAB 홈페이지 v1.0.1 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -12,14 +13,20 @@
 <meta property="og:description" content="아이들의 오늘을 연구하고 미래의 교육을 설계합니다. 현장 기반 교육 AI 연구소, JAEWON AI LAB.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="JAEWON AI LAB">
-<!-- ▼ 수정 위치: 실제 배포 주소가 준비되면 아래 세 줄의 주석을 해제하고 값을 채워 주세요 -->
 <meta property="og:url" content="https://jaewonai.kr/">
 <meta property="og:image" content="https://jaewonai.kr/images/jaewon-spring.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
 <link rel="canonical" href="https://jaewonai.kr/">
+<!-- 트위터 카드 (일부 메신저·SNS 미리보기 호환용) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JAEWON AI LAB | 재원 AI 연구소">
+<meta name="twitter:description" content="아이들의 오늘을 연구하고 미래의 교육을 설계합니다. 현장 기반 교육 AI 연구소, JAEWON AI LAB.">
+<meta name="twitter:image" content="https://jaewonai.kr/images/jaewon-spring.jpg">
 <title>JAEWON AI LAB | 재원 AI 연구소</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23183153'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23F0C75E'/%3E%3C/svg%3E">
+<!-- 히어로(첫 화면) 배경 이미지는 LCP 대상이라 미리 불러오도록 힌트를 추가합니다 -->
+<link rel="preload" as="image" href="images/jaewon-spring.jpg">
 <!--
   ============================================================
   사진 사용 안내 (원장님께)
@@ -179,6 +186,21 @@ nav a[aria-current="page"]{color:var(--green)}
 .contact-info span{font-weight:700;color:var(--navy);word-break:break-all}
 .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
 
+/* ===== MEDIA(언론보도) ===== */
+.media{background:var(--cream)}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.media-card{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(24,49,83,.06);display:flex;flex-direction:column;transition:.25s;width:100%;text-align:left;font-family:inherit;cursor:pointer;padding:0}
+.media-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.media-thumb{height:190px;background:#eef1ee;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.media-thumb img{width:100%;height:100%;object-fit:cover}
+.media-card.media-card--contain .media-thumb img{object-fit:contain;background:#fff}
+.media-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.media-source{font-size:12.5px;font-weight:900;color:var(--green);letter-spacing:.05em;margin-bottom:8px}
+.media-card h3{font-size:18px;color:var(--navy);margin:0 0 10px;line-height:1.4}
+.media-card p{color:var(--muted);font-size:14px;margin:0 0 20px;flex:1}
+.media-date{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:4px}
+.media-link{margin-top:auto;color:var(--navy);font-weight:900;font-size:14px}
+
 footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 .footer-flex{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
 .footer-brand{font-weight:900;color:var(--navy)}
@@ -201,14 +223,14 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 @media(max-width:980px){
   .about-grid,.philosophy-grid,.trust-grid,.lecture-grid{grid-template-columns:1fr}
   .field-grid{grid-template-columns:repeat(2,1fr)}
-  .principle-grid,.story-grid,.gallery-grid,.lecture-photos{grid-template-columns:repeat(2,1fr)}
+  .principle-grid,.story-grid,.gallery-grid,.lecture-photos,.media-grid{grid-template-columns:repeat(2,1fr)}
   .tool-grid{grid-template-columns:1fr}
   .trust-photos img.tall{height:180px;grid-row:auto}
 }
 @media(max-width:620px){
   .container{width:min(var(--max),calc(100% - 28px))}
   section{padding:70px 0}
-  .field-grid,.principle-grid,.story-grid,.gallery-grid,.lecture-photos,.stat-row{grid-template-columns:1fr}
+  .field-grid,.principle-grid,.story-grid,.gallery-grid,.lecture-photos,.stat-row,.media-grid{grid-template-columns:1fr}
   .contact-box{padding:32px 22px}
   .hero{min-height:78vh}
 }
@@ -244,7 +266,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 
 <!-- ============================== HERO SECTION ============================== -->
 <section class="hero" id="home">
-<div class="hero-bg" id="heroBg" data-img="hero" role="img" aria-label="재원어린이집 봄철 건물 전경"></div>
+<div class="hero-bg" id="heroBg" data-img="hero" role="img" aria-label="재원어린이집 봄철 건물 전경" style="background-image:url('images/jaewon-spring.jpg')"></div>
 <div class="hero-overlay" aria-hidden="true"></div>
 <div class="container hero-inner">
 <div class="eyebrow">Field-based Education AI Lab</div>
@@ -266,7 +288,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 </div>
 <div class="about-grid">
 <div class="profile-card">
-<img data-img="director" alt="재원어린이집 원장이자 JAEWON AI LAB 대표 황은경" loading="lazy">
+<img data-img="director" src="images/director-hwang.jpg" alt="재원어린이집 원장이자 JAEWON AI LAB 대표 황은경" loading="lazy">
 <div class="profile-card-body">
 <h3 data-config="representativeName">황은경</h3>
 <div class="role">재원어린이집 원장 · JAEWON AI LAB 대표</div>
@@ -298,7 +320,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 </div>
 <div class="philosophy-grid">
 <div class="philosophy-photo">
-<img data-img="philosophy" alt="숲체험 중 아이에게 뽀뽀를 받으며 웃고 있는 교사" loading="lazy">
+<img data-img="philosophy" src="images/forest-kiss.jpg" alt="숲체험 중 아이에게 뽀뽀를 받으며 웃고 있는 교사" loading="lazy">
 </div>
 <div class="philosophy-copy">
 <p>좋은 교육은 컴퓨터 앞이 아니라 아이들 곁에서 시작된다고 믿습니다.</p>
@@ -334,28 +356,28 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 </div>
 <div class="field-grid">
 <div class="field-card">
-<img data-img="fieldChildren" alt="재원어린이집 원아들이 농원에서 자연을 체험하는 모습" loading="lazy" style="object-position:top center">
+<img data-img="fieldChildren" src="images/farm-experience.jpg" alt="재원어린이집 원아들이 농원에서 자연을 체험하는 모습" loading="lazy" style="object-position:top center">
 <div class="field-card-body">
 <strong>자연 속에서 배우는 아이들</strong>
 <span>재원 농원에서의 체험을 통해 아이들의 배움과 성장의 방향을 발견합니다.</span>
 </div>
 </div>
 <div class="field-card">
-<img data-img="fieldParents" alt="학부모를 대상으로 진행한 특강 현장" loading="lazy">
+<img data-img="fieldParents" src="images/parent-lecture.jpg" alt="학부모를 대상으로 진행한 특강 현장" loading="lazy">
 <div class="field-card-body">
 <strong>학부모와의 소통</strong>
 <span>학부모 교육과 양방향 소통을 통해 함께 성장합니다.</span>
 </div>
 </div>
 <div class="field-card">
-<img data-img="fieldTeachers" alt="재원어린이집 건물 앞 교직원 단체사진" loading="lazy">
+<img data-img="fieldTeachers" src="images/staff-group.jpg" alt="재원어린이집 건물 앞 교직원 단체사진" loading="lazy">
 <div class="field-card-body">
 <strong>교사와의 협력</strong>
 <span>교사 교육, 장학, 컨설팅을 통해 현장의 변화를 만들어갑니다.</span>
 </div>
 </div>
 <div class="field-card">
-<img data-img="fieldCommunity" alt="운영위원회 회의 장면" loading="lazy">
+<img data-img="fieldCommunity" src="images/operating-committee.jpg" alt="운영위원회 회의 장면" loading="lazy">
 <div class="field-card-body">
 <strong>지역사회와의 연결</strong>
 <span>교육기관, 행정기관, 지역사회와 협력하며 현장의 목소리를 전달합니다.</span>
@@ -521,7 +543,20 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 </div>
 </section>
 
+<!-- ============================== MEDIA(언론보도) SECTION ============================== -->
+<section class="media" id="media">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Media</div>
+<h2>언론보도</h2>
+<p class="section-desc">JAEWON AI LAB과 재원어린이집의 활동이 소개된 언론 보도입니다.</p>
+</div>
+<div class="media-grid" id="mediaGrid"><!-- JavaScript의 MEDIA_LIST 배열로 채워집니다 --></div>
+</div>
+</section>
+
 </main>
+
 
 <footer><div class="container footer-flex"><div><div class="footer-brand">JAEWON AI LAB</div><div>재원 AI 연구소 · 현장을 연구하고, AI로 연결합니다.</div></div><div>© 2026 JAEWON AI LAB. All rights reserved.</div></div></footer>
 
@@ -600,6 +635,38 @@ const GALLERY_LIST = [
   { src: "images/gallery-safety-training.jpg", caption: "아이들의 안전을 지키는 교직원의 노력", alt: "교직원 안전교육(심폐소생술) 실습 장면" },
   { src: "images/operating-committee.jpg", caption: "지역사회와 함께 만드는 교육", alt: "운영위원회 회의 장면" },
   { src: "images/bucheon-award-stage.jpg", caption: "현장이 인정한 교육의 가치", alt: "부천시 관련 시상식 무대에서 찍은 단체사진" }
+];
+
+// 언론보도(MEDIA) 섹션 목록
+// - url이 있으면 새 탭 링크, lightbox:true 이면 클릭 시 기존 갤러리 라이트박스로 이미지를 확대해 보여줍니다.
+// - 교육부 기사는 원문 자료가 없어 항목 자체를 아직 포함하지 않았습니다(추측 내용 없음). 자료를 받으면 이 배열에 추가하면 됩니다.
+const MEDIA_LIST = [
+  {
+    source: "생생부천 (부천시 원미구)",
+    date: "2026.04.09",
+    title: "현장을 품고 마음을 여는 보육통(通) 운영",
+    summary: "부천시 원미구가 현장 경험이 풍부한 어린이집 원장들을 '보육통'으로 위촉해, 다른 어린이집의 운영을 돕고 현장의 목소리를 행정에 전달하는 역할을 맡겼다는 소식입니다.",
+    image: "images/bouyuktong-group.jpg",
+    url: "https://news.bucheon.go.kr/home/kor/M749153916/board.do?deleteAt=N&act=detail&idx=cb00d1a0008a85e71a41b8741facbffe792571d2db052b707c3cbe9ad41e4c10&searchValue1=0&pageIndex=1"
+  },
+  {
+    source: "뉴스통신",
+    date: "2019.04.03",
+    title: "부천 재원어린이집, 감정·공감 부모특강 성료",
+    summary: "재원어린이집이 학부모를 대상으로 감정과 공감 인성교육 부모특강을 운영한 내용이 언론에 소개되었습니다.",
+    image: "images/media-newstongsin.jpg",
+    contain: true,
+    lightbox: true,
+    linkLabel: "기사 이미지 보기 →"
+  },
+  {
+    source: "교육부 웹진 『행복한 교육』",
+    date: "2026년 여름호 vol.507 · 김미은 명예기자",
+    title: "\u201c마주봄 \u2014 함께 보니 비로소 보였다\u201d - 경기도교육청이 교실에서 시작한 유보통합의 첫걸음",
+    summary: "경기도교육청의 마주봄교사 시범운영을 통해 유치원과 어린이집이 함께 교실의 변화를 만들어가는 유보통합 현장이 교육부 웹진 『행복한 교육』에 소개되었습니다.",
+    image: "images/media-moe-majubom.jpg",
+    url: "https://happyedu.moe.go.kr/happy/bbs/selectBoardArticleInfo.do?bbsId=BBSMSTR_000000000231&nttId=14702"
+  }
 ];
 
 /* ============================== 모바일 메뉴 ============================== */
@@ -727,6 +794,68 @@ document.querySelectorAll('[data-config]').forEach(function(el){
     btn.appendChild(cap);
     btn.addEventListener('click', function(){ openLightbox(item.src, item.alt, item.caption, btn); });
     grid.appendChild(btn);
+  });
+})();
+
+/* ============================== MEDIA(언론보도) 카드 렌더링 ============================== */
+(function renderMedia(){
+  const grid = document.getElementById('mediaGrid');
+  MEDIA_LIST.forEach(function(item){
+    // url이 있으면 링크(a 요소), lightbox면 버튼(button 요소)으로 만들어 기존 라이트박스를 재사용합니다.
+    const card = document.createElement(item.url ? 'a' : 'button');
+    card.className = 'media-card' + (item.contain ? ' media-card--contain' : '');
+
+    if(item.image){
+      const thumb = document.createElement('div');
+      thumb.className = 'media-thumb';
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.title;
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+    }
+
+    const body = document.createElement('div');
+    body.className = 'media-body';
+
+    const source = document.createElement('div');
+    source.className = 'media-source';
+    source.textContent = item.source;
+    body.appendChild(source);
+
+    if(item.date){
+      const date = document.createElement('div');
+      date.className = 'media-date';
+      date.textContent = item.date;
+      body.appendChild(date);
+    }
+
+    const h3 = document.createElement('h3');
+    h3.textContent = item.title;
+    body.appendChild(h3);
+
+    const p = document.createElement('p');
+    p.textContent = item.summary;
+    body.appendChild(p);
+
+    const link = document.createElement('span');
+    link.className = 'media-link';
+    link.textContent = item.linkLabel || '기사 보기 →';
+    body.appendChild(link);
+
+    if(item.url){
+      card.href = item.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.setAttribute('aria-label', item.title + ' 기사 보기 (새 탭에서 열림)');
+    } else if(item.lightbox){
+      card.setAttribute('aria-label', item.title + ' - 이미지 크게 보기');
+      card.addEventListener('click', function(){ openLightbox(item.image, item.title, item.title, card); });
+    }
+
+    card.appendChild(body);
+    grid.appendChild(card);
   });
 })();
 
