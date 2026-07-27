@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<!-- JAEWON AI LAB 홈페이지 v1.0.1 -->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="JAEWON AI LAB은 재원어린이집 현장 경험과 AI를 연결하여 교사와 원장의 업무는 줄이고, 아이들과 함께하는 시간은 늘리는 현장 기반 교육 AI 연구소입니다.">
+<meta name="keywords" content="어린이집 AI, 보육 연구소, JAEWON AI LAB, 재원어린이집, 유보통합, 평가제, 이음교육, 보육 AI 도구, 황은경 원장">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#183153">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JAEWON AI LAB | 재원 AI 연구소">
+<meta property="og:description" content="아이들의 오늘을 연구하고 미래의 교육을 설계합니다. 현장 기반 교육 AI 연구소, JAEWON AI LAB.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="JAEWON AI LAB">
+<meta property="og:url" content="https://jaewonai.kr/">
+<meta property="og:image" content="https://jaewonai.kr/images/jaewon-spring.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<link rel="canonical" href="https://jaewonai.kr/">
+<!-- 트위터 카드 (일부 메신저·SNS 미리보기 호환용) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JAEWON AI LAB | 재원 AI 연구소">
+<meta name="twitter:description" content="아이들의 오늘을 연구하고 미래의 교육을 설계합니다. 현장 기반 교육 AI 연구소, JAEWON AI LAB.">
+<meta name="twitter:image" content="https://jaewonai.kr/images/jaewon-spring.jpg">
+<title>JAEWON AI LAB | 재원 AI 연구소</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23183153'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23F0C75E'/%3E%3C/svg%3E">
+<!-- 히어로(첫 화면) 배경 이미지는 LCP 대상이라 미리 불러오도록 힌트를 추가합니다 -->
+<link rel="preload" as="image" href="images/jaewon-spring.jpg">
+<!--
+  ============================================================
+  사진 사용 안내 (원장님께)
+  - 이 파일이 참조하는 사진은 모두 "images/" 폴더 안에 있어야 합니다.
+  - Netlify Drop에 업로드할 때 이 HTML 파일과 images 폴더를 함께,
+    같은 위치 구조로 올려야 사진이 정상적으로 보입니다.
+  - 아동 얼굴이 크게 나온 사진은 보호자 공개 동의를 다시 한 번 확인해 주세요.
+  - 웹에 올리기 전에는 사진의 EXIF 위치정보(촬영 GPS 좌표)를 제거하는 것이
+    안전합니다. (예: 사진 앱의 "정보 내보내기" 또는 온라인 EXIF 제거 도구 사용)
+  ============================================================
+-->
+<style>
+/* ===== 브랜드 색상 토큰 (기존 v1과 동일하게 유지) ===== */
+:root{--navy:#183153;--navy2:#254b78;--green:#5f8f72;--greenlight:#eaf3ed;--yellow:#f0c75e;--cream:#f8f6f0;--text:#263442;--muted:#687585;--line:#dfe7e2;--shadow:0 18px 45px rgba(24,49,83,.10);--radius:24px;--max:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Pretendard,"Noto Sans KR",SUIT,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff;line-height:1.7}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+section{padding:100px 0}
+.section-head{max-width:760px;margin-bottom:46px}
+.section-kicker{color:var(--green);font-weight:900;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+h2{color:var(--navy);font-size:clamp(32px,4vw,50px);line-height:1.25;letter-spacing:-.03em;margin:0 0 15px}
+.section-desc{font-size:18px;color:var(--muted);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:14px;font-weight:800;transition:.2s;border:1px solid transparent;cursor:pointer;font-family:inherit;font-size:15px}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--navy2)}
+.btn-secondary{background:#fff;border-color:var(--line);color:var(--navy)}
+.btn-secondary:hover{border-color:var(--green);color:var(--green)}
+.btn[disabled],.btn.is-disabled{opacity:.5;cursor:not-allowed}
+
+/* ===== 헤더 / 내비게이션 ===== */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,231,226,.8);transition:.25s}
+header.scrolled{box-shadow:0 8px 24px rgba(24,49,83,.08)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.brand-mark{width:42px;height:42px;border-radius:50%;position:relative;background:conic-gradient(#5f8f72 0 20%,#75a8c7 20% 40%,#f0c75e 40% 60%,#e79f73 60% 80%,#7f91c8 80% 100%);box-shadow:0 0 0 6px #f4f8f5;flex:none}
+.brand-mark:after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;left:14px;top:14px}
+.brand small{display:block;font-weight:600;color:var(--muted);margin-top:-3px}
+nav ul{display:flex;list-style:none;gap:22px;padding:0;margin:0;font-size:13.5px;font-weight:700;color:#435263}
+nav a:hover{color:var(--green)}
+nav a[aria-current="page"]{color:var(--green)}
+.menu-btn{display:none;border:0;background:transparent;color:var(--navy);font-size:28px;cursor:pointer;line-height:1;padding:6px}
+@media(max-width:980px){
+  nav ul{display:none;position:absolute;left:20px;right:20px;top:70px;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+  nav ul.open{display:flex}
+  .menu-btn{display:block}
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,49,83,.35) 0%,rgba(24,49,83,.55) 55%,rgba(24,49,83,.85) 100%);z-index:1}
+.hero-inner{position:relative;z-index:2;padding:80px 0 64px}
+.eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:13px;font-weight:800;letter-spacing:.08em}
+.hero h1{margin:22px 0 16px;font-size:clamp(30px,5vw,52px);line-height:1.3;letter-spacing:-.02em;font-weight:900}
+.hero-copy{font-size:18px;color:rgba(255,255,255,.86);max-width:640px;margin:0 0 30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ===== ABOUT ===== */
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:start}
+.profile-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.profile-card img{width:100%;height:340px;object-fit:cover}
+.profile-card-body{padding:24px 26px}
+.profile-card-body h3{margin:0 0 4px;color:var(--navy);font-size:22px}
+.profile-card-body .role{color:var(--muted);font-weight:700;font-size:14px}
+.about-copy p{margin:0 0 15px;color:#526171;font-size:17px}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.badge{background:var(--greenlight);color:var(--green);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:800}
+
+/* ===== PHILOSOPHY ===== */
+.philosophy{background:#fff}
+.philosophy-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:56px}
+.philosophy-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.philosophy-photo img{width:100%;height:420px;object-fit:cover}
+.philosophy-copy p{font-size:19px;color:#37455a;margin:0 0 16px;font-weight:600}
+.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.principle-card{padding:28px;border-radius:20px;background:var(--cream);border:1px solid #ece7dc}
+.principle-num{font-size:13px;font-weight:900;color:var(--green);letter-spacing:.1em}
+.principle-card h3{font-size:20px;color:var(--navy);margin:14px 0 8px}
+.principle-card p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* ===== FIELD ===== */
+.field{background:linear-gradient(145deg,#183153 0%,#244a75 100%);color:#fff}
+.field h2{color:#fff}
+.field .section-desc{color:rgba(255,255,255,.72)}
+.field-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.field-card{border-radius:20px;overflow:hidden;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.field-card img{width:100%;height:180px;object-fit:cover}
+.field-card-body{padding:18px}
+.field-card-body strong{display:block;font-size:16px;margin-bottom:6px}
+.field-card-body span{font-size:13.5px;color:rgba(255,255,255,.72)}
+
+/* ===== TRUST ===== */
+.trust{background:var(--cream)}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.trust-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.trust-photos img{border-radius:16px;box-shadow:0 10px 26px rgba(24,49,83,.08);height:180px;object-fit:cover;width:100%}
+.trust-photos img.tall{height:378px;grid-row:span 2}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 30px}
+.stat{background:#fff;border-radius:18px;padding:20px;text-align:center;border:1px solid var(--line)}
+.stat b{display:block;font-size:28px;color:var(--navy)}
+.stat span{font-size:12.5px;color:var(--muted);font-weight:700}
+.trust-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.trust-list li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:700;color:#3a4a5c;font-size:14.5px}
+
+/* ===== AI TOOLKIT ===== */
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.tool-card{min-height:260px;padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:#fff;box-shadow:0 12px 30px rgba(24,49,83,.06);display:flex;flex-direction:column;transition:.25s}
+.tool-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.tool-card.is-soon{background:var(--cream);border-style:dashed}
+.tool-icon{width:44px;height:44px;border-radius:12px;background:var(--greenlight);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--green);font-weight:900}
+.tool-card h3{font-size:22px;color:var(--navy);margin:16px 0 10px}
+.tool-card p{color:var(--muted);margin:0 0 22px;font-size:15px}
+.tool-link{margin-top:auto;color:var(--navy);font-weight:900}
+.soon-tag{display:inline-flex;margin-top:auto;background:#fff;border:1px solid var(--line);color:var(--muted);font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;width:fit-content}
+
+/* ===== STORY ===== */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.story-card{border:1px solid var(--line);border-radius:20px;padding:24px;background:#fff;display:flex;flex-direction:column;min-height:150px}
+.story-card h3{font-size:17px;color:var(--navy);margin:0 0 14px;line-height:1.4}
+.story-tag{margin-top:auto;display:inline-flex;width:fit-content;background:var(--greenlight);color:var(--green);font-weight:800;font-size:12.5px;padding:6px 12px;border-radius:999px}
+
+/* ===== LECTURE ===== */
+.lecture-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px}
+.lecture-copy{border-radius:var(--radius);padding:34px;background:var(--greenlight);border:1px solid #d7e6dc}
+.lecture-copy p{color:#3a4a5c;margin:0 0 20px}
+.topic-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.topic-list li{background:#fff;border:1px solid #d7e6dc;border-radius:12px;padding:10px 14px;font-weight:700;font-size:14px;color:var(--navy)}
+.lecture-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.lecture-photos figure img{height:210px;object-fit:cover;width:100%}
+.lecture-photos figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(24,49,83,.08)}
+
+/* ===== GALLERY ===== */
+.gallery{background:var(--cream)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(24,49,83,.08);border:0;padding:0;cursor:zoom-in;background:none;position:relative}
+.gallery-item img{height:220px;object-fit:cover;width:100%;transition:.3s}
+.gallery-item.gallery-item--portrait img{height:320px;object-position:top center}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(0deg,rgba(24,49,83,.75),transparent);color:#fff;font-size:12.5px;font-weight:700;text-align:left}
+.lightbox{position:fixed;inset:0;background:rgba(15,25,40,.92);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(90vw,900px);max-height:82vh;border-radius:12px}
+.lightbox-cap{color:#fff;text-align:center;margin-top:14px;font-size:14px}
+.lightbox-close{position:absolute;top:22px;right:26px;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer}
+
+/* ===== CONTACT ===== */
+.contact-box{border-radius:30px;background:linear-gradient(135deg,var(--greenlight),#fff7df);padding:52px;border:1px solid #e7eadf}
+.contact-topics{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+.contact-topics span{background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:800;font-size:13px;padding:9px 14px;border-radius:999px}
+.contact-info{display:grid;gap:10px;margin:0 0 26px}
+.contact-info p{margin:0;display:flex;align-items:baseline;gap:10px;font-size:16px;color:var(--text);flex-wrap:wrap}
+.contact-info strong{color:var(--green);font-weight:900;font-size:13px;letter-spacing:.04em;background:var(--greenlight);padding:5px 10px;border-radius:8px;flex:none}
+.contact-info span{font-weight:700;color:var(--navy);word-break:break-all}
+.contact-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ===== MEDIA(언론보도) ===== */
+.media{background:var(--cream)}
+.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.media-card{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(24,49,83,.06);display:flex;flex-direction:column;transition:.25s;width:100%;text-align:left;font-family:inherit;cursor:pointer;padding:0}
+.media-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.media-thumb{height:190px;background:#eef1ee;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.media-thumb img{width:100%;height:100%;object-fit:cover}
+.media-card.media-card--contain .media-thumb img{object-fit:contain;background:#fff}
+.media-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.media-source{font-size:12.5px;font-weight:900;color:var(--green);letter-spacing:.05em;margin-bottom:8px}
+.media-card h3{font-size:18px;color:var(--navy);margin:0 0 10px;line-height:1.4}
+.media-card p{color:var(--muted);font-size:14px;margin:0 0 20px;flex:1}
+.media-date{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:4px}
+.media-link{margin-top:auto;color:var(--navy);font-weight:900;font-size:14px}
+
+footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.footer-flex{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-brand{font-weight:900;color:var(--navy)}
+
+/* ===== 공통 UI: 토스트 / 맨위로 / 스킵링크 / 포커스 ===== */
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:14px 20px;border-radius:0 0 14px 0;font-weight:800;z-index:1000;box-shadow:var(--shadow)}
+.skip-link:focus{left:0}
+a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(16px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;max-width:min(90vw,360px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;border:0;font-size:20px;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:900}
+.to-top.show{opacity:1;pointer-events:auto}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .toast,.to-top,.gallery-item img{transition:none}
+}
+
+/* ===== 반응형 ===== */
+@media(max-width:980px){
+  .about-grid,.philosophy-grid,.trust-grid,.lecture-grid{grid-template-columns:1fr}
+  .field-grid{grid-template-columns:repeat(2,1fr)}
+  .principle-grid,.story-grid,.gallery-grid,.lecture-photos,.media-grid{grid-template-columns:repeat(2,1fr)}
+  .tool-grid{grid-template-columns:1fr}
+  .trust-photos img.tall{height:180px;grid-row:auto}
+}
+@media(max-width:620px){
+  .container{width:min(var(--max),calc(100% - 28px))}
+  section{padding:70px 0}
+  .field-grid,.principle-grid,.story-grid,.gallery-grid,.lecture-photos,.stat-row,.media-grid{grid-template-columns:1fr}
+  .contact-box{padding:32px 22px}
+  .hero{min-height:78vh}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<!-- ============================== 헤더 / 내비게이션 ============================== -->
+<header id="siteHeader">
+<div class="container nav">
+<a class="brand" href="#home" aria-label="JAEWON AI LAB 홈으로 이동"><span class="brand-mark" aria-hidden="true"></span><span data-config="instituteName">JAEWON AI LAB<small>재원 AI 연구소</small></span></a>
+<nav aria-label="주요 메뉴">
+<button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu" onclick="toggleMenu()">☰</button>
+<ul id="menu">
+<li><a href="#home" data-nav="home">HOME</a></li>
+<li><a href="#about" data-nav="about">ABOUT</a></li>
+<li><a href="#philosophy" data-nav="philosophy">PHILOSOPHY</a></li>
+<li><a href="#field" data-nav="field">FIELD</a></li>
+<li><a href="#toolkit" data-nav="toolkit">AI TOOLKIT</a></li>
+<!-- STORY 메뉴: 콘텐츠 준비 후 재활성화 예정 (아래 STORY_LIST, renderStory 참고)
+<li><a href="#story" data-nav="story">STORY</a></li>
+-->
+<li><a href="#lecture" data-nav="lecture">LECTURE</a></li>
+<li><a href="#gallery" data-nav="gallery">GALLERY</a></li>
+<li><a href="#media" data-nav="media">MEDIA</a></li>
+<li><a href="#contact" data-nav="contact">CONTACT</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main id="main">
+
+<!-- ============================== HERO SECTION ============================== -->
+<section class="hero" id="home">
+<div class="hero-bg" id="heroBg" data-img="hero" role="img" aria-label="재원어린이집 봄철 건물 전경" style="background-image:url('images/jaewon-spring.jpg')"></div>
+<div class="hero-overlay" aria-hidden="true"></div>
+<div class="container hero-inner">
+<div class="eyebrow">Field-based Education AI Lab</div>
+<h1>아이들의 오늘을 연구하고<br>미래의 교육을 설계합니다.</h1>
+<p class="hero-copy">JAEWON AI LAB은 어린이집 현장 경험과 AI를 연결하여, 교사와 원장의 업무는 줄이고 아이들과 함께하는 시간은 늘리는 현장 기반 교육 AI 연구소입니다.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#toolkit">AI TOOLKIT 보기</a>
+<a class="btn btn-secondary" href="#about">연구소 소개</a>
+</div>
+</div>
+</section>
+
+<!-- ============================== ABOUT SECTION ============================== -->
+<section class="about" id="about">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">About</div>
+<h2>현장에서 시작된<br>교육 AI 연구소</h2>
+</div>
+<div class="about-grid">
+<div class="profile-card">
+<img data-img="director" src="images/director-hwang.jpg" alt="재원어린이집 원장이자 JAEWON AI LAB 대표 황은경" loading="lazy">
+<div class="profile-card-body">
+<h3 data-config="representativeName">황은경</h3>
+<div class="role">재원어린이집 원장 · JAEWON AI LAB 대표</div>
+</div>
+</div>
+<div class="about-copy">
+<p>안녕하세요. 재원어린이집 원장 황은경입니다.</p>
+<p>20년 이상 어린이집 현장에서 아이들과 교사, 학부모를 만나며 교육과 운영의 실제 문제를 경험해 왔습니다.</p>
+<p>좋은 기술은 현장을 복잡하게 만드는 것이 아니라, 현장의 어려움을 덜어주어야 한다고 생각합니다.</p>
+<p>JAEWON AI LAB은 AI를 통해 교사와 원장의 반복 업무를 줄이고, 아이들과 함께하는 시간을 늘리는 방법을 연구합니다.</p>
+<div class="badge-row">
+<span class="badge">보육 현장</span>
+<span class="badge">교육 연구</span>
+<span class="badge">AI 활용</span>
+<span class="badge">교사 지원</span>
+<span class="badge">운영 혁신</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== PHILOSOPHY SECTION ============================== -->
+<section class="philosophy" id="philosophy">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Philosophy</div>
+<h2>좋은 교육은<br>아이들 곁에서 시작됩니다</h2>
+</div>
+<div class="philosophy-grid">
+<div class="philosophy-photo">
+<img data-img="philosophy" src="images/forest-kiss.jpg" alt="숲체험 중 아이에게 뽀뽀를 받으며 웃고 있는 교사" loading="lazy">
+</div>
+<div class="philosophy-copy">
+<p>좋은 교육은 컴퓨터 앞이 아니라 아이들 곁에서 시작된다고 믿습니다.</p>
+<p>AI는 교사를 대신하는 기술이 아니라, 교사가 아이들에게 더 집중할 수 있도록 돕는 도구여야 합니다.</p>
+</div>
+</div>
+<div class="principle-grid">
+<div class="principle-card">
+<div class="principle-num">01</div>
+<h3>현장 중심</h3>
+<p>실제 어린이집에서 필요한 문제부터 살펴봅니다.</p>
+</div>
+<div class="principle-card">
+<div class="principle-num">02</div>
+<h3>사람 중심</h3>
+<p>기술보다 아이와 교사, 학부모를 먼저 생각합니다.</p>
+</div>
+<div class="principle-card">
+<div class="principle-num">03</div>
+<h3>실천 중심</h3>
+<p>아이디어에 머물지 않고 실제 사용할 수 있는 도구로 만듭니다.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== FIELD SECTION ============================== -->
+<section class="field" id="field">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Field</div>
+<h2>현장이 곧<br>연구실입니다</h2>
+</div>
+<div class="field-grid">
+<div class="field-card">
+<img data-img="fieldChildren" src="images/farm-experience.jpg" alt="재원어린이집 원아들이 농원에서 자연을 체험하는 모습" loading="lazy" style="object-position:top center">
+<div class="field-card-body">
+<strong>자연 속에서 배우는 아이들</strong>
+<span>재원 농원에서의 체험을 통해 아이들의 배움과 성장의 방향을 발견합니다.</span>
+</div>
+</div>
+<div class="field-card">
+<img data-img="fieldParents" src="images/parent-lecture.jpg" alt="학부모를 대상으로 진행한 특강 현장" loading="lazy">
+<div class="field-card-body">
+<strong>학부모와의 소통</strong>
+<span>학부모 교육과 양방향 소통을 통해 함께 성장합니다.</span>
+</div>
+</div>
+<div class="field-card">
+<img data-img="fieldTeachers" src="images/staff-group.jpg" alt="재원어린이집 건물 앞 교직원 단체사진" loading="lazy">
+<div class="field-card-body">
+<strong>교사와의 협력</strong>
+<span>교사 교육, 장학, 컨설팅을 통해 현장의 변화를 만들어갑니다.</span>
+</div>
+</div>
+<div class="field-card">
+<img data-img="fieldCommunity" src="images/operating-committee.jpg" alt="운영위원회 회의 장면" loading="lazy">
+<div class="field-card-body">
+<strong>지역사회와의 연결</strong>
+<span>교육기관, 행정기관, 지역사회와 협력하며 현장의 목소리를 전달합니다.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== RESEARCH & TRUST SECTION ============================== -->
+<section class="trust" id="trust">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Research &amp; Trust</div>
+<h2>현장의 경험을<br>연구와 실천으로 연결합니다</h2>
+</div>
+<div class="trust-grid">
+<div class="trust-photos">
+<img class="tall" src="images/bouyuktong-group.jpg" alt="보육통 위촉장을 받은 관계자들의 단체사진" loading="lazy">
+<img src="images/bouyuktong-award-receive.jpg" alt="구청장으로부터 보육통 위촉장을 전달받는 모습" loading="lazy">
+<img src="images/bucheon-award-stage.jpg" alt="부천시 관련 시상식 무대에서 찍은 단체사진" loading="lazy">
+</div>
+<div>
+<div class="stat-row">
+<div class="stat"><b data-config="statExperience">20년+</b><span>보육 현장 경험</span></div>
+<div class="stat"><b data-config="statCapacity">234명</b><span>재원어린이집 정원</span></div>
+<div class="stat"><b data-config="statAiTools">4+</b><span>공개 AI 교육 도구</span></div>
+</div>
+<ul class="trust-list">
+<li>부천시 보육 관련 위촉 활동</li>
+<li>보육 현장 의견 전달 및 정책 소통</li>
+<li>부천시장 표창</li>
+<li>학부모 교육 및 교사 연수</li>
+<li>현장 컨설팅과 교육자료 개발</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== AI TOOLKIT SECTION ============================== -->
+<section id="toolkit">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">AI Toolkit</div>
+<h2>현장에서 바로 활용하는<br>보육 AI 도구</h2>
+<p class="section-desc">재원어린이집의 운영 경험을 토대로 기획하고 개선한 실무형 콘텐츠입니다.</p>
+</div>
+<div class="tool-grid">
+<a class="tool-card" id="toolPromptBook" href="#" target="_blank" rel="noopener noreferrer" aria-label="AI 실무 프롬프트북 열기 (새 탭에서 열림)">
+<div class="tool-icon" aria-hidden="true">01</div>
+<h3>AI 실무 프롬프트북</h3>
+<p>어린이집 원장과 교사가 실제 업무에 활용할 수 있는 AI 프롬프트 모음입니다.</p>
+<div class="tool-link">자료 열기 →</div>
+</a>
+<a class="tool-card" id="toolChildcareEbook" href="#" target="_blank" rel="noopener noreferrer" aria-label="보육사업안내 e-book 열기 (새 탭에서 열림)">
+<div class="tool-icon" aria-hidden="true">02</div>
+<h3>보육사업안내 e-book</h3>
+<p>복잡한 보육사업안내를 검색하고 이해하기 쉽게 만든 디지털 자료입니다.</p>
+<div class="tool-link">자료 열기 →</div>
+</a>
+<a class="tool-card" id="toolTransitionEdu" href="#" target="_blank" rel="noopener noreferrer" aria-label="이음교육 활동설계 열기 (새 탭에서 열림)">
+<div class="tool-icon" aria-hidden="true">03</div>
+<h3>이음교육 활동설계</h3>
+<p>유아교육과 초등교육의 연결을 지원하는 활동 설계 도구입니다.</p>
+<div class="tool-link">자료 열기 →</div>
+</a>
+<a class="tool-card" id="toolAccreditation" href="#" target="_blank" rel="noopener noreferrer" aria-label="평가제 스터디북 열기 (새 탭에서 열림)">
+<div class="tool-icon" aria-hidden="true">04</div>
+<h3>평가제 스터디북</h3>
+<p>어린이집 평가 준비와 교사 학습을 지원하는 디지털 학습자료입니다.</p>
+<div class="tool-link">자료 열기 →</div>
+</a>
+<div class="tool-card is-soon">
+<div class="tool-icon" aria-hidden="true">＋</div>
+<h3>재원 AI 사진관리</h3>
+<p>어린이집 사진을 더 쉽게 정리하고 관리하는 도구를 준비하고 있습니다.</p>
+<span class="soon-tag">Coming Soon</span>
+</div>
+<div class="tool-card is-soon">
+<div class="tool-icon" aria-hidden="true">＋</div>
+<h3>교육일정표 제작</h3>
+<p>월간 교육일정표를 손쉽게 만드는 도구를 준비하고 있습니다.</p>
+<span class="soon-tag">Coming Soon</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== STORY SECTION (비활성화됨: 콘텐츠 준비 후 주석 해제) ==============================
+<section id="story">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Story</div>
+<h2>현장에서 시작된<br>이야기</h2>
+</div>
+<div class="story-grid" id="storyGrid"></div>
+</div>
+</section>
+============================================================================================== -->
+
+<!-- ============================== LECTURE SECTION ============================== -->
+<section id="lecture">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Lecture</div>
+<h2>강의와<br>현장 나눔</h2>
+</div>
+<div class="lecture-grid">
+<article class="lecture-copy">
+<p>JAEWON AI LAB은 어린이집 현장에서 축적한 경험과 AI 활용 사례를 교육 현장과 나눕니다.</p>
+<ul class="topic-list">
+<li>어린이집 업무에 활용하는 생성형 AI</li>
+<li>현장 중심 이음교육</li>
+<li>어린이집 운영과 교육자료 디지털화</li>
+<li>교사 업무를 줄이는 AI 활용</li>
+<li>평가 준비와 기록 지원</li>
+</ul>
+<a class="btn btn-primary" id="lectureContactBtn" href="#contact">강의 및 협업 문의</a>
+</article>
+<div class="lecture-photos">
+<figure><img src="images/parent-lecture.jpg" alt="학부모 특강을 진행하는 모습" loading="lazy"></figure>
+<figure><img src="images/teacher-consulting.jpg" alt="교사 연수 및 컨설팅 장면" loading="lazy"></figure>
+<figure><img src="images/bouyuktong-group.jpg" alt="위촉 활동 관련 단체사진" loading="lazy"></figure>
+<figure><img src="images/gallery-safety-training.jpg" alt="교직원 안전교육 및 현장 연수" loading="lazy"></figure>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================== GALLERY SECTION ============================== -->
+<section class="gallery" id="gallery">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Gallery</div>
+<h2>교육은 즐거운 순간<br>속에서 자랍니다</h2>
+</div>
+<div class="gallery-grid" id="galleryGrid"><!-- JavaScript의 GALLERY_LIST 배열로 채워집니다 --></div>
+</div>
+</section>
+
+<!-- ============================== MEDIA(언론보도) SECTION ============================== -->
+<section class="media" id="media">
+<div class="container">
+<div class="section-head">
+<div class="section-kicker">Media</div>
+<h2>언론보도</h2>
+<p class="section-desc">JAEWON AI LAB과 재원어린이집의 활동이 소개된 언론 보도입니다.</p>
+</div>
+<div class="media-grid" id="mediaGrid"><!-- JavaScript의 MEDIA_LIST 배열로 채워집니다 --></div>
+</div>
+</section>
+
+<!-- ============================== CONTACT SECTION ============================== -->
+<section id="contact">
+<div class="container">
+<div class="contact-box">
+<div class="section-kicker">Contact</div>
+<h2>현장과 AI를 연결하는<br>새로운 교육을 함께 만듭니다</h2>
+<div class="contact-topics">
+<span>AI 교육도구</span>
+<span>교육 및 강의</span>
+<span>현장 컨설팅</span>
+<span>협업 제안</span>
+</div>
+<div class="contact-info">
+<p><strong>이메일</strong><span data-config="contactEmail">hekhappy@naver.com</span></p>
+<p><strong>연락처</strong><span data-config="contactPhone">010-6248-2017</span></p>
+</div>
+<div class="contact-actions">
+<a class="btn btn-secondary" id="linkBlog" href="#" aria-label="블로그로 이동">블로그</a>
+<a class="btn btn-secondary" id="linkInstagram" href="#" aria-label="인스타그램으로 이동">인스타그램</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+
+<footer><div class="container footer-flex"><div><div class="footer-brand">JAEWON AI LAB</div><div>재원 AI 연구소 · 현장을 연구하고, AI로 연결합니다.</div></div><div>© 2026 JAEWON AI LAB. All rights reserved.</div></div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top" id="toTop" aria-label="맨 위로 이동" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- 라이트박스 (갤러리 확대보기) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 확대보기">
+<button class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
+<div>
+<img id="lightboxImg" src="" alt="">
+<div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+</div>
+
+<script>
+/* ============================================================
+   ▼▼▼ 수정 위치 : SITE_CONFIG ▼▼▼
+   이름 / 연락처 / SNS 링크 / AI 도구 링크 / 수치 정보 /
+   사진 경로를 이 한 곳에서 관리합니다.
+   값이 비어 있으면("") 관련 버튼 클릭 시
+   "연결 정보가 준비 중입니다." 안내가 표시됩니다.
+   ============================================================ */
+const SITE_CONFIG = {
+  representativeName: "황은경",
+  instituteName: "JAEWON AI LAB",
+  email: "hekhappy@naver.com",
+  phone: "010-6248-2017",
+  blog: "https://blog.naver.com/jwkidmail",
+  instagram: "https://www.instagram.com/jwkid77",
+  stats: {
+    experienceYears: "20년+",
+    capacity: "234명",
+    aiTools: "4+"
+  },
+  aiTools: {
+    // 기존 홈페이지에 있던 링크를 그대로 유지했습니다. 임의로 변경하지 마세요.
+    promptBook: "https://fascinating-fudge-f07709.netlify.app/",
+    childcareEbook: "https://sprightly-dusk-363e51.netlify.app/",
+    transitionEducation: "https://admirable-raindrop-af54ab.netlify.app/",
+    accreditationStudyBook: "https://ephemeral-sable-581a52.netlify.app/"
+  },
+  // 사진 경로 : HTML에서는 직접 경로를 쓰지 않고 이 값을 data-img 속성으로 참조합니다.
+  images: {
+    hero: "images/jaewon-spring.jpg",
+    director: "images/director-hwang.jpg",
+    philosophy: "images/forest-kiss.jpg",
+    fieldChildren: "images/farm-experience.jpg",
+    fieldParents: "images/parent-lecture.jpg",
+    fieldTeachers: "images/staff-group.jpg",
+    fieldCommunity: "images/operating-committee.jpg"
+  }
+};
+
+/* ============================== STORY 섹션 (비활성화됨: 콘텐츠 준비 후 주석 해제) ==============================
+// STORY 섹션 목록 (필요할 때 이 배열에 항목을 추가/수정하세요)
+const STORY_LIST = [
+  "왜 어린이집 원장이 AI를 시작했을까",
+  "보육사업안내 e-book 제작 이야기",
+  "평가제 스터디북 개발 과정",
+  "AI로 교육일정표를 만드는 방법",
+  "어린이집 사진관리의 어려움",
+  "현장과 초등학교를 잇는 이음교육"
+];
+============================================================================================== */
+
+// GALLERY 섹션 목록 (사진 경로/설명/alt 텍스트를 이 배열에서 관리합니다)
+// portrait:true 인 항목은 세로 사진용 스타일(gallery-item--portrait)이 자동 적용됩니다.
+const GALLERY_LIST = [
+  { src: "images/farm-experience.jpg", caption: "자연에서 배우는 재원 농원체험", alt: "재원어린이집 원아들이 농원에서 자연을 체험하는 모습", portrait: true },
+  { src: "images/fire-drill.jpg", caption: "안전을 몸으로 익히는 소방대피훈련", alt: "재원어린이집 원아와 교직원이 야외에서 소방대피훈련에 참여하는 모습" },
+  { src: "images/gallery-snowwhite.jpg", caption: "아이들과 함께 만든 특별한 하루", alt: "백설공주 의상을 입고 포즈를 취한 모습" },
+  { src: "images/gallery-imagination-play.jpg", caption: "상상과 놀이로 자라는 아이들", alt: "동화 속 주인공으로 꾸며 특별한 놀이를 준비한 모습" },
+  { src: "images/gallery-hanbok.jpg", caption: "우리 문화를 배우는 전통 체험", alt: "한복을 입고 어린이집 앞에 선 모습" },
+  { src: "images/bbq-party.jpg", caption: "함께 만들고 나누는 재원 바베큐 파티", alt: "재원어린이집 원아들이 함께 바베큐 파티를 즐기는 모습", portrait: true },
+  { src: "images/gallery-safety-training.jpg", caption: "아이들의 안전을 지키는 교직원의 노력", alt: "교직원 안전교육(심폐소생술) 실습 장면" },
+  { src: "images/operating-committee.jpg", caption: "지역사회와 함께 만드는 교육", alt: "운영위원회 회의 장면" },
+  { src: "images/bucheon-award-stage.jpg", caption: "현장이 인정한 교육의 가치", alt: "부천시 관련 시상식 무대에서 찍은 단체사진" }
+];
+
+// 언론보도(MEDIA) 섹션 목록
+// - url이 있으면 새 탭 링크, lightbox:true 이면 클릭 시 기존 갤러리 라이트박스로 이미지를 확대해 보여줍니다.
+const MEDIA_LIST = [
+  {
+    source: "생생부천 (부천시 원미구)",
+    date: "2026.04.09",
+    title: "현장을 품고 마음을 여는 보육통(通) 운영",
+    summary: "부천시 원미구가 현장 경험이 풍부한 어린이집 원장들을 '보육통'으로 위촉해, 다른 어린이집의 운영을 돕고 현장의 목소리를 행정에 전달하는 역할을 맡겼다는 소식입니다.",
+    image: "images/bouyuktong-group.jpg",
+    url: "https://news.bucheon.go.kr/home/kor/M749153916/board.do?deleteAt=N&act=detail&idx=cb00d1a0008a85e71a41b8741facbffe792571d2db052b707c3cbe9ad41e4c10&searchValue1=0&pageIndex=1"
+  },
+  {
+    source: "뉴스통신",
+    date: "2019.04.03",
+    title: "부천 재원어린이집, 감정·공감 부모특강 성료",
+    summary: "재원어린이집이 학부모를 대상으로 감정과 공감 인성교육 부모특강을 운영한 내용이 언론에 소개되었습니다.",
+    image: "images/media-newstongsin-parent-lecture.jpg",
+    focus: "center 20%",
+    url: "http://www.newstongsin.com/news/news.html?news_num=28403"
+  },
+  {
+    source: "교육부 웹진 『행복한 교육』",
+    date: "2026년 여름호 vol.507 · 김미은 명예기자",
+    title: "\u201c마주봄 \u2014 함께 보니 비로소 보였다\u201d - 경기도교육청이 교실에서 시작한 유보통합의 첫걸음",
+    summary: "경기도교육청의 마주봄교사 시범운영을 통해 유치원과 어린이집이 함께 교실의 변화를 만들어가는 유보통합 현장이 교육부 웹진 『행복한 교육』에 소개되었습니다.",
+    image: "images/media-majubom-hwangeunkyung.jpg",
+    focus: "center 15%",
+    url: "https://happyedu.moe.go.kr/happy/bbs/selectBoardArticleInfo.do?bbsId=BBSMSTR_000000000231&nttId=14702"
+  },
+  {
+    source: "생생부천 (부천시)",
+    date: "2024.09.11",
+    title: "부천 역곡1동 이웃과 함께하는 따뜻한 추석",
+    summary: "재원어린이집이 추석을 맞아 취약계층을 위해 라면 50상자를 역곡1동에 기탁했습니다. 기탁된 물품은 한부모가족, 홀몸 어르신 등 관내 저소득 가정에 전달될 예정입니다.",
+    image: "images/media-community-donation.jpg",
+    url: "https://news.bucheon.go.kr/home/kor/M749153916/board.do?idx=cb00d1a0008a85e71a41b8741facbffed57e56da0c975ad765e6d514b42243b1&act=detail"
+  }
+];
+
+/* ============================== 모바일 메뉴 ============================== */
+function toggleMenu(){
+  const menu = document.getElementById('menu');
+  const btn = document.getElementById('menuBtn');
+  const isOpen = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  btn.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+}
+document.querySelectorAll('#menu a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('menu').classList.remove('open');
+    const btn = document.getElementById('menuBtn');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', '메뉴 열기');
+  });
+});
+
+/* ============================== 토스트 안내 ============================== */
+function showToast(message){
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+}
+
+/* ============================== 링크 자동 연결 ============================== */
+function setupConfigLink(id, url, options){
+  const el = document.getElementById(id);
+  if(!el) return;
+  options = options || {};
+  if(url){
+    el.href = options.isMail ? ('mailto:' + url) : url;
+    if(!options.isMail){
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+    }
+  } else {
+    el.href = '#';
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      showToast('연결 정보가 준비 중입니다.');
+    });
+  }
+}
+setupConfigLink('linkBlog', SITE_CONFIG.blog);
+setupConfigLink('linkInstagram', SITE_CONFIG.instagram);
+// AI 도구 링크는 기존 값을 그대로 유지합니다 (임의 변경 금지)
+setupConfigLink('toolPromptBook', SITE_CONFIG.aiTools.promptBook);
+setupConfigLink('toolChildcareEbook', SITE_CONFIG.aiTools.childcareEbook);
+setupConfigLink('toolTransitionEdu', SITE_CONFIG.aiTools.transitionEducation);
+setupConfigLink('toolAccreditation', SITE_CONFIG.aiTools.accreditationStudyBook);
+
+/* ============================== 사진 경로 적용 (SITE_CONFIG.images 기반) ==============================
+   HTML에는 직접 경로를 적지 않고 data-img="키이름" 속성만 적어두면,
+   아래 코드가 SITE_CONFIG.images에서 값을 찾아 자동으로 채워줍니다.
+   사진을 교체하려면 SITE_CONFIG.images 안의 경로만 수정하면 됩니다. */
+document.querySelectorAll('[data-img]').forEach(function(el){
+  const key = el.getAttribute('data-img');
+  const src = SITE_CONFIG.images[key];
+  if(!src) return;
+  if(el.tagName === 'IMG'){
+    el.src = src;
+  } else {
+    el.style.backgroundImage = "url('" + src + "')";
+  }
+});
+
+/* ============================== 이름/기관명/수치 자동 반영 ============================== */
+document.querySelectorAll('[data-config]').forEach(function(el){
+  const key = el.getAttribute('data-config');
+  let value = null;
+  if(key === 'representativeName') value = SITE_CONFIG.representativeName;
+  else if(key === 'instituteName') value = SITE_CONFIG.instituteName;
+  else if(key === 'statExperience') value = SITE_CONFIG.stats.experienceYears;
+  else if(key === 'statCapacity') value = SITE_CONFIG.stats.capacity;
+  else if(key === 'statAiTools') value = SITE_CONFIG.stats.aiTools;
+  else if(key === 'contactEmail') value = SITE_CONFIG.email;
+  else if(key === 'contactPhone') value = SITE_CONFIG.phone;
+  if(value){
+    const firstChild = el.firstChild;
+    if(firstChild && firstChild.nodeType === Node.TEXT_NODE){
+      firstChild.textContent = value;
+    } else {
+      el.textContent = value;
+    }
+  }
+});
+
+/* ============================== STORY 카드 렌더링 (비활성화됨: STORY 섹션과 함께 콘텐츠 준비 후 주석 해제)
+(function renderStory(){
+  const grid = document.getElementById('storyGrid');
+  STORY_LIST.forEach(function(title){
+    const card = document.createElement('div');
+    card.className = 'story-card';
+    const h3 = document.createElement('h3');
+    h3.textContent = title;
+    const tag = document.createElement('span');
+    tag.className = 'story-tag';
+    tag.textContent = '준비 중';
+    card.appendChild(h3);
+    card.appendChild(tag);
+    grid.appendChild(card);
+  });
+})();
+============================================================================================== */
+
+/* ============================== GALLERY 카드 렌더링 + 라이트박스 ============================== */
+(function renderGallery(){
+  const grid = document.getElementById('galleryGrid');
+  GALLERY_LIST.forEach(function(item){
+    const btn = document.createElement('button');
+    btn.className = 'gallery-item' + (item.portrait ? ' gallery-item--portrait' : '');
+    btn.setAttribute('aria-label', item.caption + ' - 크게 보기');
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt;
+    img.loading = 'lazy';
+    const cap = document.createElement('span');
+    cap.className = 'gallery-cap';
+    cap.textContent = item.caption;
+    btn.appendChild(img);
+    btn.appendChild(cap);
+    btn.addEventListener('click', function(){ openLightbox(item.src, item.alt, item.caption, btn); });
+    grid.appendChild(btn);
+  });
+})();
+
+/* ============================== MEDIA(언론보도) 카드 렌더링 ============================== */
+(function renderMedia(){
+  const grid = document.getElementById('mediaGrid');
+  MEDIA_LIST.forEach(function(item){
+    // url이 있으면 링크(a 요소), lightbox면 버튼(button 요소)으로 만들어 기존 라이트박스를 재사용합니다.
+    const card = document.createElement(item.url ? 'a' : 'button');
+    card.className = 'media-card' + (item.contain ? ' media-card--contain' : '');
+
+    if(item.image){
+      const thumb = document.createElement('div');
+      thumb.className = 'media-thumb';
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.title;
+      img.loading = 'lazy';
+      if(item.focus){ img.style.objectPosition = item.focus; }
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+    }
+
+    const body = document.createElement('div');
+    body.className = 'media-body';
+
+    const source = document.createElement('div');
+    source.className = 'media-source';
+    source.textContent = item.source;
+    body.appendChild(source);
+
+    if(item.date){
+      const date = document.createElement('div');
+      date.className = 'media-date';
+      date.textContent = item.date;
+      body.appendChild(date);
+    }
+
+    const h3 = document.createElement('h3');
+    h3.textContent = item.title;
+    body.appendChild(h3);
+
+    const p = document.createElement('p');
+    p.textContent = item.summary;
+    body.appendChild(p);
+
+    const link = document.createElement('span');
+    link.className = 'media-link';
+    link.textContent = item.linkLabel || '기사 보기 →';
+    body.appendChild(link);
+
+    if(item.url){
+      card.href = item.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.setAttribute('aria-label', item.title + ' 기사 보기 (새 탭에서 열림)');
+    } else if(item.lightbox){
+      card.setAttribute('aria-label', item.title + ' - 이미지 크게 보기');
+      card.addEventListener('click', function(){ openLightbox(item.image, item.title, item.title, card); });
+    }
+
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+})();
+
+// 라이트박스를 열 때 클릭한 버튼을 기억해 두었다가, 닫으면 그 버튼으로 포커스를 되돌립니다.
+let lastLightboxTrigger = null;
+function openLightbox(src, alt, caption, triggerEl){
+  lastLightboxTrigger = triggerEl || null;
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = alt;
+  document.getElementById('lightboxCap').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lightboxClose').focus();
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  if(lastLightboxTrigger){
+    lastLightboxTrigger.focus();
+    lastLightboxTrigger = null;
+  }
+}
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target.id === 'lightbox') closeLightbox();
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+
+/* ============================== 스크롤 이벤트: 헤더 스타일 / 현재 메뉴 활성화 / 맨위로 버튼 ============================== */
+const header = document.getElementById('siteHeader');
+const toTopBtn = document.getElementById('toTop');
+window.addEventListener('scroll', function(){
+  header.classList.toggle('scrolled', window.scrollY > 12);
+  toTopBtn.classList.toggle('show', window.scrollY > 480);
+}, {passive:true});
+
+if('IntersectionObserver' in window){
+  const navLinks = document.querySelectorAll('#menu a[data-nav]');
+  const observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(function(link){
+          if(link.getAttribute('data-nav') === id){
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  // 내비게이션 메뉴에 있는 섹션만 관찰합니다 (trust, story는 메뉴에 없어 제외)
+  ['home','about','philosophy','field','toolkit','lecture','gallery','media','contact'].forEach(function(id){
+    const sec = document.getElementById(id);
+    if(sec) observer.observe(sec);
+  });
+}
+</script>
+</body>
+</html>
