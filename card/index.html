@@ -1,1 +1,646 @@
+<!DOCTYPE html>
+<!-- JAEWON AI CARD v1.0 -->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="재원어린이집 원장 황은경 · JAEWON AI LAB 디지털 명함">
+<meta name="theme-color" content="#183153">
+<meta property="og:type" content="website">
+<meta property="og:title" content="황은경 | JAEWON AI CARD">
+<meta property="og:description" content="재원어린이집 원장 · JAEWON AI LAB">
+<meta property="og:url" content="https://jaewonai.kr/card/">
+<meta property="og:image" content="https://jaewonai.kr/images/hek.jpg">
+<link rel="canonical" href="https://jaewonai.kr/card/">
+<title>황은경 | JAEWON AI CARD</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23183153'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23F0C75E'/%3E%3C/svg%3E">
+<!--
+  ============================================================
+  안내 (원장님께)
+  - 이 파일은 기존 JAEWON AI LAB 홈페이지(../index.html)와
+    같은 브랜드 색상·폰트를 사용하는 "온라인 명함" 페이지입니다.
+  - 기존 홈페이지 파일과 images 폴더는 전혀 수정하지 않았습니다.
+  - 이 파일은 반드시 기존 홈페이지 루트 아래 "card" 폴더 안에
+    index.html 이름으로 있어야 합니다. (예: /card/index.html)
+  - 전화번호, 이메일, 인스타그램·블로그 링크 등은 아래 CARD_CONFIG
+    영역에서만 관리합니다. 값이 비어 있으면("") 관련 버튼이 자동으로
+    숨겨집니다. 본문 어디에도 같은 정보를 중복 입력하지 않았습니다.
+  - 개정 이력: ① 포트폴리오 성격의 "핵심 철학 인용문", "경력 및
+    활동 요약", "AI PROJECTS" 영역 삭제. ② 별도 CONNECT 섹션을
+    삭제하고 인스타그램·블로그를 상단 빠른 연락 버튼으로 이동.
+    ③ 프로필 사진을 원형 크롭 없이 원본 비율 그대로 표시하도록 변경.
+    ④ 홈페이지 링크는 상단 빠른 버튼 마지막 칸과 중간 "JAEWON AI LAB"
+    섹션 두 곳에 의도적으로 배치(중복 아님). ⑤ 문자(SMS) 버튼 삭제,
+    카카오톡 버튼(ID 복사 안내) 추가. ⑥ 하단에 어린이집 주소 추가.
+    ⑦ 사진 로딩 실패 시 대체 화면(JAEWON AI LAB 텍스트) 표시.
+    ⑧ 프로필 사진 크기 축소. ⑨ 프로필 직함에 "재원 AI연구소 소장"
+    표기 추가. ⑩ 태그라인·인사말(소개) 섹션 삭제. ⑪ 중간 섹션 문구
+    수정. ⑫ 하단은 주소·저작권 표기만 남기고 이름·직함 삭제.
+    ⑬ 상단 브랜드 바를 네이비 바탕·흰 글자로 변경(연락처 저장
+    버튼과 동일 배경색). ⑭ 하단 주소를 한 줄로 표시, "맨 위로"
+    텍스트 링크 삭제(화면 우측 하단 동그란 맨 위로 버튼은 유지).
+    ⑮ 이름 아래 두 직함을 네이비 바탕·흰 글자 배지 안에 두 줄로
+    표시(연락처 저장 버튼과 동일 배경색). ⑯ 이름(황은경)에 네이비
+    바탕·흰 글자 배지 적용(연락처 저장 버튼과 동일 배경색), 직함은
+    배경 없이 원래 글자 스타일로 원복. ⑰ 프로필 사진 자체를 명함
+    콘텐츠 가로 너비에 맞춰 확대(원본 비율 유지, 크롭 없음). 사진
+    테두리는 사각형 박스 대신 radial-gradient 마스크로 부드럽게
+    페이드아웃시키고, 그 아래 같은 사진의 블러 버전을 겹쳐 구름이
+    흩어지는 듯한 수채화 느낌의 소프트 엣지로 처리. ⑱ 사진 크기를
+    콘텐츠 너비의 66.7%(기존의 2/3)로 축소, 수채화 테두리 기법은
+    그대로 유지. ⑲ [디자인 마감] 프로필 섹션 상단 여백 확대(24px
+    추가), 사진 크기를 콘텐츠 너비의 73%로 확대(수채화 테두리 기법
+    유지, 크롭 없음), 두 번째 직함을 "JAEWON AI LAB"으로 통일
+    (CARD_CONFIG.secondOrganization 변경, secondRole은 빈 값으로
+    변경), 하단 주소를 화면에서만 두 줄로 분리 표시(데이터는
+    CARD_CONFIG.address 한 줄 그대로 유지). 기능(전화·카카오톡·
+    이메일·인스타그램·블로그·홈페이지·연락처 저장·공유·vCard·QR)은
+    변경 없음.
+  ============================================================
+-->
+<style>
+:root{
+  --navy:#183153;--navy2:#254b78;--green:#5f8f72;--greenlight:#eaf3ed;
+  --yellow:#f0c75e;--cream:#f8f6f0;--text:#263442;--muted:#687585;--line:#dfe7e2;
+  --shadow:0 18px 45px rgba(24,49,83,.10);
+  --radius:22px;
+  --card-max:520px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+body{margin:0;background:var(--cream);color:var(--text);font-family:Pretendard,"Noto Sans KR",SUIT,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
+/* 스킵링크 / 포커스 */
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:14px 20px;border-radius:0 0 14px 0;font-weight:800;z-index:1000;box-shadow:var(--shadow)}
+.skip-link:focus{left:0}
+a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+
+/* 명함 전체 래퍼 (PC에서는 중앙 정렬) */
+.card-shell{max-width:var(--card-max);margin:0 auto;background:#fff;min-height:100vh}
+@media(min-width:640px){
+  body{padding:32px 16px}
+  .card-shell{min-height:auto;border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+}
+
+/* 상단 브랜드 바 (연락처 저장 버튼과 동일한 네이비 바탕 + 흰 글자) */
+.top-bar{padding:18px 22px;background:var(--navy)}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:#fff;min-height:48px}
+.brand-mark{width:36px;height:36px;border-radius:50%;position:relative;flex:none;background:conic-gradient(#5f8f72 0 20%,#75a8c7 20% 40%,#f0c75e 40% 60%,#e79f73 60% 80%,#7f91c8 80% 100%);box-shadow:0 0 0 5px rgba(255,255,255,.18)}
+.brand-mark::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#fff;left:12px;top:12px}
+.brand-text{font-size:14.5px;color:#fff}
+.brand-text small{display:block;font-weight:600;color:rgba(255,255,255,.75);font-size:11.5px;margin-top:-2px}
+
+main{display:block}
+
+.fade-in{animation:cardFadeUp .6s ease both}
+@keyframes cardFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.fade-in{animation:none}}
+.card-shell > .fade-in:nth-of-type(1){animation-delay:.02s}
+.card-shell > .fade-in:nth-of-type(2){animation-delay:.08s}
+.card-shell > .fade-in:nth-of-type(3){animation-delay:.14s}
+.card-shell > .fade-in:nth-of-type(4){animation-delay:.18s}
+
+/* 프로필 섹션 */
+.profile-section{padding:52px 18px 26px;text-align:center;background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
+.profile-photo-wrap{position:relative;width:73%;margin:0 auto 20px;min-height:150px}
+.profile-photo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:blur(26px);-webkit-mask-image:radial-gradient(ellipse 96% 96% at 50% 50%,#000 20%,transparent 100%);mask-image:radial-gradient(ellipse 96% 96% at 50% 50%,#000 20%,transparent 100%);z-index:0}
+.profile-photo-fg{position:relative;z-index:1;display:block;width:100%;height:auto;object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 82% 82% at 50% 50%,#000 32%,transparent 96%);mask-image:radial-gradient(ellipse 82% 82% at 50% 50%,#000 32%,transparent 96%)}
+.profile-photo-fallback{position:absolute;inset:0;z-index:2;display:none;align-items:center;justify-content:center;flex-direction:column;padding:40px 20px;color:var(--navy);font-weight:900;font-size:23px;line-height:1.4;letter-spacing:.03em;text-align:center;background:var(--greenlight);border-radius:18px}
+.profile-photo-fallback.show{display:flex}
+.card-kicker{color:var(--green);font-weight:900;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.profile-name{margin:0 0 10px;display:inline-block;background:var(--navy);color:#fff;font-size:26px;font-weight:900;letter-spacing:-.02em;padding:9px 22px;border-radius:14px}
+.profile-roles{margin:0 0 14px;color:var(--text);font-size:15.5px;font-weight:700;line-height:1.6}
+.profile-roles span{display:block}
+
+/* 빠른 연락 버튼 (전화·카카오톡·이메일·인스타그램·블로그·홈페이지 = 6개, 3개씩 2줄) */
+.quick-actions-wrap{padding:0 20px}
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 12px}
+.qa-btn{appearance:none;-webkit-appearance:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:60px;padding:10px 6px;border-radius:16px;background:#fff;border:1px solid var(--line);color:var(--navy);font-weight:800;font-size:12.5px;font-family:inherit;line-height:1.3;text-align:center;cursor:pointer;transition:.2s}
+.qa-btn:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.qa-btn svg{width:22px;height:22px}
+@media(prefers-reduced-motion:reduce){.qa-btn{transition:none}.qa-btn:hover{transform:none}}
+
+.cta-stack{display:flex;flex-direction:column;gap:10px;padding:2px 20px 22px}
+.btn-cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;border-radius:16px;font-weight:800;font-size:15.5px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-cta svg{width:19px;height:19px;flex:none}
+.btn-cta--primary{background:var(--navy);color:#fff;box-shadow:var(--shadow)}
+.btn-cta--primary:hover{background:var(--navy2);transform:translateY(-1px)}
+.btn-cta--secondary{background:var(--greenlight);color:var(--green);border-color:var(--green)}
+.btn-cta--secondary:hover{background:#fff;transform:translateY(-1px)}
+.btn-cta--outline{background:#fff;color:var(--navy);border-color:var(--line)}
+.btn-cta--outline:hover{border-color:var(--green);color:var(--green)}
+@media(prefers-reduced-motion:reduce){.btn-cta{transition:none}.btn-cta:hover{transform:none}}
+
+/* 공통 섹션 */
+.section{padding:28px 20px}
+.section + .section{border-top:1px solid var(--line)}
+.section-kicker{color:var(--green);font-weight:900;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.section-title{color:var(--navy);font-size:22px;font-weight:900;line-height:1.4;margin:0 0 6px;letter-spacing:-.01em}
+.section-desc{color:var(--muted);font-size:14px;margin:0 0 18px}
+
+/* LAB 연결 */
+.lab-section{text-align:center;background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 100%);color:#fff}
+.lab-section .section-title{color:#fff}
+.lab-section p{color:rgba(255,255,255,.82);font-size:14.5px;margin:0 0 20px}
+.lab-section .btn-cta--primary{background:#fff;color:var(--navy)}
+.lab-section .btn-cta--primary:hover{background:var(--yellow)}
+
+/* QR */
+.qr-section{text-align:center}
+.qr-box{width:168px;margin:0 auto;border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff}
+.qr-box img{width:100%;height:auto}
+
+/* 하단 */
+.card-footer{padding:24px 16px 30px;text-align:center;color:var(--muted);font-size:12.5px}
+.footer-address{color:var(--text);font-size:11.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+.footer-address span{display:block}
+.footer-copy{margin:0}
+
+/* 카카오톡 ID 안내 모달 */
+.modal-overlay{position:fixed;inset:0;background:rgba(24,49,83,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:1200}
+.modal-overlay[hidden]{display:none}
+.modal-box{background:#fff;border-radius:20px;padding:28px 24px;max-width:340px;width:100%;text-align:center;box-shadow:var(--shadow)}
+.modal-box:focus{outline:none}
+.modal-title{color:var(--navy);font-size:18px;font-weight:900;margin:0 0 14px}
+.modal-id{font-size:26px;font-weight:900;color:var(--navy);background:var(--greenlight);border-radius:12px;padding:10px;margin:0 0 14px;letter-spacing:.03em}
+.modal-status{color:var(--green);font-weight:700;font-size:14px;margin:0 0 16px;min-height:20px}
+.modal-status.is-error{color:#b3492f}
+.modal-desc{color:var(--muted);font-size:13.5px;line-height:1.7;margin:0 0 20px}
+.modal-actions{display:flex;gap:10px}
+.modal-actions .btn-cta{flex:1;min-height:48px;font-size:14px;padding:0 8px}
+
+/* 토스트 / 맨 위로 */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(16px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;max-width:min(88vw,360px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.to-top-fab{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;border:0;font-size:19px;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:900}
+.to-top-fab.show{opacity:1;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.toast,.to-top-fab{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<div class="card-shell">
+
+<header class="top-bar">
+<div class="brand">
+<span class="brand-mark" aria-hidden="true"></span>
+<span class="brand-text">JAEWON AI LAB<small>재원 AI 연구소</small></span>
+</div>
+</header>
+
+<main id="main">
+
+<!-- ============================== 프로필 ============================== -->
+<section class="profile-section fade-in">
+<div class="card-kicker">JAEWON AI CARD</div>
+<div class="profile-photo-wrap">
+<img class="profile-photo-bg" id="profileImgBg" src="" alt="" aria-hidden="true">
+<img class="profile-photo-fg" id="profileImg" src="" alt="바닷가에서 미소 짓고 있는 재원어린이집 황은경 원장" loading="eager">
+<div class="profile-photo-fallback" id="profilePhotoFallback" aria-hidden="true">JAEWON<br>AI LAB</div>
+</div>
+<h1 class="profile-name" id="profileName">황은경</h1>
+<p class="profile-roles" id="profileRoles"><span id="roleMain">재원어린이집 원장</span><span id="roleSecond">JAEWON AI LAB</span></p>
+</section>
+
+<!-- ============================== 빠른 연락 버튼 ============================== -->
+<div class="quick-actions-wrap fade-in">
+<div class="quick-actions" id="quickActions" role="group" aria-label="빠른 연락 메뉴">
+<a class="qa-btn" id="actionCall" href="#" aria-label="황은경 원장에게 전화하기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+<span>전화</span>
+</a>
+<button type="button" class="qa-btn" id="actionKakao" aria-label="황은경 원장의 카카오톡 ID 확인 및 복사">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16v10H8l-4 4V5Z"/></svg>
+<span>카카오톡</span>
+</button>
+<a class="qa-btn" id="actionMail" href="#" aria-label="황은경 원장에게 이메일 보내기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 6.5 12 13l8-6.5"/></svg>
+<span>이메일</span>
+</a>
+<a class="qa-btn" id="actionInstagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="황은경 원장 인스타그램 새 탭에서 보기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+<span>인스타그램</span>
+</a>
+<a class="qa-btn" id="actionBlog" href="#" target="_blank" rel="noopener noreferrer" aria-label="황은경 원장 네이버 블로그 새 탭에서 보기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20l4.2-1 10-10a2 2 0 0 0 0-2.8l-.4-.4a2 2 0 0 0-2.8 0l-10 10L4 20Z"/><path d="M14 5.5l4 4"/></svg>
+<span>블로그</span>
+</a>
+<a class="qa-btn" id="actionWebsite" href="#" target="_blank" rel="noopener noreferrer" aria-label="JAEWON AI LAB 홈페이지 새 탭에서 보기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-6-3.8-9s1.3-6.4 3.8-9Z"/></svg>
+<span>홈페이지</span>
+</a>
+</div>
+</div>
+
+<div class="cta-stack fade-in">
+<button type="button" class="btn-cta btn-cta--primary" id="btnSaveContact" aria-label="황은경 원장 연락처를 휴대폰에 저장하기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.5 17c.6-1.8 2-2.8 3.5-2.8s2.9 1 3.5 2.8M15 9h4M15 13h4"/></svg>
+연락처 저장
+</button>
+<button type="button" class="btn-cta btn-cta--secondary" id="btnShare" aria-label="이 명함 페이지 공유하기">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.4"/><circle cx="17.5" cy="6" r="2.4"/><circle cx="17.5" cy="18" r="2.4"/><path d="M8.2 10.8 15.4 7M8.2 13.2l7.2 3.8"/></svg>
+명함 공유하기
+</button>
+</div>
+
+<!-- ============================== JAEWON AI LAB 연결 (홈페이지 링크는 이 섹션에만 존재) ============================== -->
+<section class="section lab-section" aria-labelledby="labHeading">
+<div class="section-kicker" style="color:var(--yellow)">JAEWON AI LAB</div>
+<h2 class="section-title" id="labHeading">아이들의 오늘을 연구하고<br>미래의 교육을 설계합니다.</h2>
+<p>20년 유아교육 현장 경험을 바탕으로 만든 AI연구소</p>
+<a class="btn-cta btn-cta--primary" id="btnLabSite" href="https://jaewonai.kr/" target="_blank" rel="noopener noreferrer" aria-label="JAEWON AI LAB 홈페이지 새 탭에서 보기">JAEWON AI LAB 홈페이지 보기</a>
+</section>
+
+<!-- ============================== QR코드 (이미지 파일이 있을 때만 표시) ==============================
+     예상 경로: ../images/jaewon-ai-card-qr.png
+     해당 파일을 images 폴더에 추가하면 자동으로 화면에 표시됩니다. -->
+<section class="section qr-section" id="qrSection" hidden aria-labelledby="qrHeading">
+<div class="section-kicker">QR코드</div>
+<h2 class="section-title" id="qrHeading">QR코드로 바로 접속</h2>
+<div class="qr-box">
+<img id="qrImage" src="" alt="JAEWON AI CARD 접속용 QR코드" loading="lazy">
+</div>
+</section>
+
+</main>
+
+<footer class="card-footer">
+<div class="footer-address" id="footerAddress" hidden></div>
+<div class="footer-copy">© JAEWON AI LAB</div>
+</footer>
+
+</div><!-- /.card-shell -->
+
+<!-- ============================== 카카오톡 ID 안내 모달 ============================== -->
+<div class="modal-overlay" id="kakaoModalOverlay" hidden>
+<div class="modal-box" id="kakaoModal" role="dialog" aria-modal="true" aria-labelledby="kakaoModalTitle" tabindex="-1">
+<h2 class="modal-title" id="kakaoModalTitle">카카오톡 ID</h2>
+<div class="modal-id" id="kakaoModalId"></div>
+<p class="modal-status" id="kakaoModalStatus" role="status" aria-live="polite"></p>
+<p class="modal-desc">카카오톡에서<br>친구추가 → ID로 추가를 선택한 뒤<br>붙여넣어 주세요.</p>
+<div class="modal-actions">
+<button type="button" class="btn-cta btn-cta--outline" id="kakaoModalRetry">ID 다시 복사</button>
+<button type="button" class="btn-cta btn-cta--primary" id="kakaoModalConfirm">확인</button>
+</div>
+</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="to-top-fab" id="toTopFab" aria-label="페이지 맨 위로 이동">↑</button>
+
+<script>
+/* ============================================================
+   ▼▼▼ 수정 위치 : CARD_CONFIG ▼▼▼
+   이름 / 연락처 / 이메일 / 주소 / 지도 링크 / SNS 링크를
+   이 한 곳에서만 관리합니다. 값이 비어 있으면("") 관련 버튼이나
+   섹션이 자동으로 숨겨집니다. 본문 어디에도 같은 정보를 중복
+   입력하지 않았으니, 정보가 바뀌면 이 영역만 수정하세요.
+   ============================================================ */
+const CARD_CONFIG = {
+  name: "황은경",
+  organization: "재원어린이집",
+  role: "원장",
+  secondOrganization: "JAEWON AI LAB",
+  secondRole: "",
+
+  mobile: "010-6248-2017",
+  childcarePhone: "",
+  email: "hekhappy@naver.com",
+  address: "경기도 부천시 원미구 역곡로26번길 70 재원어린이집",
+
+  kakaoId: "jwkid",
+
+  website: "https://jaewonai.kr/",
+  cardUrl: "https://jaewonai.kr/card/",
+  mapUrl: "",
+
+  instagramUrl: "https://www.instagram.com/jwkid77",
+  blogUrl: "https://blog.naver.com/jwkidmail",
+
+  profileImage: "../images/hek.jpg",
+  qrImage: ""
+};
+
+/* ============================== 토스트 안내 ============================== */
+function showToast(message){
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+}
+
+/* ============================== 전화번호 정리 ============================== */
+function toDialDigits(v){
+  return String(v).replace(/[^0-9+]/g, '');
+}
+
+/* ============================== 프로필 기본 정보 채우기 ============================== */
+function renderProfile(){
+  const img = document.getElementById('profileImg');
+  const imgBg = document.getElementById('profileImgBg');
+  const fallback = document.getElementById('profilePhotoFallback');
+
+  /* 사진 로딩에 실패하면 깨진 이미지 대신 "JAEWON AI LAB" 대체 화면을 보여줍니다.
+     (배경으로 깔리는 블러 사진은 장식용이므로 실패해도 별도 처리하지 않고,
+     실제 사진(img)의 로딩 성공 여부만 기준으로 판단합니다.) */
+  img.addEventListener('error', function(){
+    img.style.display = 'none';
+    imgBg.style.display = 'none';
+    fallback.classList.add('show');
+  });
+
+  if(CARD_CONFIG.profileImage){
+    img.src = CARD_CONFIG.profileImage;
+    imgBg.src = CARD_CONFIG.profileImage;
+  } else {
+    img.style.display = 'none';
+    imgBg.style.display = 'none';
+    fallback.classList.add('show');
+  }
+
+  document.getElementById('profileName').textContent = CARD_CONFIG.name;
+
+  /* 두 직함을 배지(네이비 바탕·흰 글자) 안에 두 줄로 표시합니다. */
+  const roleMain = [CARD_CONFIG.organization, CARD_CONFIG.role].filter(Boolean).join(' ');
+  const roleSecond = [CARD_CONFIG.secondOrganization, CARD_CONFIG.secondRole].filter(Boolean).join(' ');
+  const rolesEl = document.getElementById('profileRoles');
+  const roleMainEl = document.getElementById('roleMain');
+  const roleSecondEl = document.getElementById('roleSecond');
+  roleMainEl.textContent = roleMain;
+  roleSecondEl.textContent = roleSecond;
+  if(!roleMain) roleMainEl.remove();
+  if(!roleSecond) roleSecondEl.remove();
+  if(!roleMain && !roleSecond) rolesEl.remove();
+
+  /* 홈페이지 링크는 ① 상단 빠른 버튼 마지막 칸, ② 중간 JAEWON AI LAB
+     섹션(btnLabSite) 두 곳에 의도적으로 존재합니다 (중복 아님). */
+  document.getElementById('btnLabSite').href = CARD_CONFIG.website;
+}
+
+/* ============================== 하단 주소 채우기 (하단에는 주소와 저작권 표기만 표시) ============================== */
+/* CARD_CONFIG.address는 한 줄 문자열로만 관리합니다. 주소가 기관명
+   (CARD_CONFIG.organization)으로 끝나면 화면에서만 "도로명 주소"와
+   "기관명"을 두 줄로 나눠 보여주고, 그렇지 않으면 한 줄로 표시합니다.
+   (데이터 자체를 두 줄로 중복 입력하지 않습니다.) */
+function renderFooter(){
+  const addrEl = document.getElementById('footerAddress');
+  const addr = CARD_CONFIG.address;
+  const org = CARD_CONFIG.organization;
+  if(addr){
+    if(org && addr.length > org.length && addr.slice(-org.length) === org){
+      const firstLine = addr.slice(0, addr.length - org.length).trim();
+      addrEl.innerHTML = '';
+      const line1 = document.createElement('span');
+      line1.textContent = firstLine;
+      const line2 = document.createElement('span');
+      line2.textContent = org;
+      addrEl.appendChild(line1);
+      addrEl.appendChild(line2);
+    } else {
+      addrEl.textContent = addr;
+    }
+    addrEl.hidden = false;
+  }
+}
+
+/* ============================== 빠른 연락 버튼 ============================== */
+/* 구성: 전화 / 카카오톡 / 이메일 / 인스타그램 / 블로그 / 홈페이지 (문자 버튼 없음).
+   각 값이 비어 있으면 해당 버튼은 자동으로 제거되고, 전부 비어 있으면
+   빠른 연락 영역 전체가 사라집니다. 홈페이지는 이 영역과 중간 JAEWON AI LAB
+   섹션 두 곳에 의도적으로 존재합니다. */
+function renderQuickActions(){
+  const callBtn = document.getElementById('actionCall');
+  const kakaoBtn = document.getElementById('actionKakao');
+  const mailBtn = document.getElementById('actionMail');
+  const igBtn = document.getElementById('actionInstagram');
+  const blogBtn = document.getElementById('actionBlog');
+  const webBtn = document.getElementById('actionWebsite');
+
+  if(CARD_CONFIG.mobile){
+    callBtn.href = 'tel:' + toDialDigits(CARD_CONFIG.mobile);
+  } else {
+    callBtn.remove();
+  }
+
+  if(CARD_CONFIG.kakaoId){
+    kakaoBtn.addEventListener('click', openKakaoModal);
+  } else {
+    kakaoBtn.remove();
+  }
+
+  if(CARD_CONFIG.email){
+    mailBtn.href = 'mailto:' + CARD_CONFIG.email;
+  } else {
+    mailBtn.remove();
+  }
+
+  if(CARD_CONFIG.instagramUrl){
+    igBtn.href = CARD_CONFIG.instagramUrl;
+  } else {
+    igBtn.remove();
+  }
+
+  if(CARD_CONFIG.blogUrl){
+    blogBtn.href = CARD_CONFIG.blogUrl;
+  } else {
+    blogBtn.remove();
+  }
+
+  if(CARD_CONFIG.website){
+    webBtn.href = CARD_CONFIG.website;
+  } else {
+    webBtn.remove();
+  }
+
+  const quickActions = document.getElementById('quickActions');
+  if(!quickActions.children.length){
+    document.querySelector('.quick-actions-wrap').remove();
+  }
+}
+
+/* ============================== vCard 연락처 저장 ============================== */
+function vEsc(s){
+  return String(s).replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+}
+function buildVCard(cfg){
+  const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
+  lines.push('N:' + vEsc(cfg.name) + ';;;;');
+  lines.push('FN:' + vEsc(cfg.name));
+
+  const orgParts = [cfg.organization];
+  if(cfg.secondOrganization) orgParts.push(cfg.secondOrganization);
+  lines.push('ORG:' + orgParts.map(vEsc).join(';'));
+
+  let title = cfg.role || '';
+  if(cfg.secondOrganization || cfg.secondRole){
+    const secondTitle = [cfg.secondOrganization, cfg.secondRole].filter(Boolean).join(' ');
+    title = title ? (title + ' · ' + secondTitle) : secondTitle;
+  }
+  if(title) lines.push('TITLE:' + vEsc(title));
+
+  if(cfg.mobile) lines.push('TEL;TYPE=CELL:' + toDialDigits(cfg.mobile));
+  if(cfg.childcarePhone) lines.push('TEL;TYPE=WORK:' + toDialDigits(cfg.childcarePhone));
+  if(cfg.email) lines.push('EMAIL;TYPE=INTERNET:' + vEsc(cfg.email));
+  if(cfg.website) lines.push('URL:' + cfg.website);
+  if(cfg.address) lines.push('ADR;TYPE=WORK:;;' + vEsc(cfg.address) + ';;;;');
+
+  const noteLines = [];
+  if(cfg.kakaoId) noteLines.push('카카오톡 ID: ' + cfg.kakaoId);
+  if(cfg.instagramUrl) noteLines.push('인스타그램: ' + cfg.instagramUrl);
+  if(cfg.blogUrl) noteLines.push('블로그: ' + cfg.blogUrl);
+  if(noteLines.length) lines.push('NOTE:' + vEsc(noteLines.join('\n')));
+
+  lines.push('END:VCARD');
+  return lines.join('\r\n');
+}
+function downloadVCard(){
+  const vcardText = buildVCard(CARD_CONFIG);
+  const blob = new Blob(['\ufeff' + vcardText], { type: 'text/vcard;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = CARD_CONFIG.name + '_JAEWON_AI_CARD.vcf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  showToast('연락처 파일이 저장되었습니다.');
+}
+
+/* ============================== 공통 클립보드 복사 함수 ============================== */
+/* execCommand('copy')의 반환값을 확인해, 실제로 성공했을 때만 true를 돌려줍니다. */
+function legacyCopyText(text){
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok === true;
+  } catch(e){
+    return false;
+  }
+}
+function copyTextToClipboard(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    return navigator.clipboard.writeText(text).then(function(){
+      return true;
+    }).catch(function(){
+      return legacyCopyText(text);
+    });
+  }
+  return Promise.resolve(legacyCopyText(text));
+}
+
+/* ============================== 명함 주소 복사 / 공유 ============================== */
+function copyCardUrl(){
+  copyTextToClipboard(CARD_CONFIG.cardUrl).then(function(ok){
+    if(ok){
+      showToast('명함 주소가 복사되었습니다.');
+    } else {
+      showToast('주소 복사에 실패했습니다. 직접 복사해 주세요.');
+    }
+  });
+}
+function shareCard(){
+  const shareTitle = CARD_CONFIG.name + ' 원장 | JAEWON AI CARD';
+  const shareText = shareTitle + '\n' + CARD_CONFIG.cardUrl;
+  if(navigator.share){
+    navigator.share({ title: shareTitle, text: shareText, url: CARD_CONFIG.cardUrl }).catch(function(err){
+      /* 사용자가 공유창을 직접 닫은 경우(AbortError)는 안내 없이 종료하고,
+         그 외 오류일 때만 명함 주소 복사로 대신합니다. */
+      if(err && err.name === 'AbortError') return;
+      copyCardUrl();
+    });
+  } else {
+    copyCardUrl();
+  }
+}
+
+/* ============================== 카카오톡 ID 안내 모달 ============================== */
+let kakaoModalTriggerEl = null;
+function updateKakaoModalStatus(ok){
+  const statusEl = document.getElementById('kakaoModalStatus');
+  if(ok){
+    statusEl.textContent = '카카오톡 ID가 복사되었습니다.';
+    statusEl.classList.remove('is-error');
+  } else {
+    statusEl.textContent = '카카오톡 ID: ' + CARD_CONFIG.kakaoId + ' 직접 입력해 주세요.';
+    statusEl.classList.add('is-error');
+  }
+}
+function onKakaoModalKeydown(e){
+  if(e.key === 'Escape'){
+    closeKakaoModal();
+  }
+}
+function openKakaoModal(){
+  kakaoModalTriggerEl = document.activeElement;
+  document.getElementById('kakaoModalId').textContent = CARD_CONFIG.kakaoId;
+  document.getElementById('kakaoModalOverlay').hidden = false;
+  document.getElementById('kakaoModal').focus();
+  document.addEventListener('keydown', onKakaoModalKeydown);
+  copyTextToClipboard(CARD_CONFIG.kakaoId).then(updateKakaoModalStatus);
+}
+function closeKakaoModal(){
+  document.getElementById('kakaoModalOverlay').hidden = true;
+  document.removeEventListener('keydown', onKakaoModalKeydown);
+  if(kakaoModalTriggerEl && typeof kakaoModalTriggerEl.focus === 'function'){
+    kakaoModalTriggerEl.focus();
+  }
+}
+
+/* ============================== QR코드 (이미지가 실제로 존재할 때만) ============================== */
+function renderQr(){
+  if(!CARD_CONFIG.qrImage) return;
+  const testImg = new Image();
+  testImg.onload = function(){
+    document.getElementById('qrImage').src = CARD_CONFIG.qrImage;
+    document.getElementById('qrSection').hidden = false;
+  };
+  testImg.onerror = function(){ /* 파일이 없으면 섹션을 계속 숨김 상태로 유지 */ };
+  testImg.src = CARD_CONFIG.qrImage;
+}
+
+/* ============================== 맨 위로 / 스크롤 ============================== */
+function scrollToTop(){
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+
+/* ============================== 이벤트 연결 ============================== */
+document.getElementById('btnSaveContact').addEventListener('click', downloadVCard);
+document.getElementById('btnShare').addEventListener('click', shareCard);
+document.getElementById('toTopFab').addEventListener('click', scrollToTop);
+
+document.getElementById('kakaoModalRetry').addEventListener('click', function(){
+  copyTextToClipboard(CARD_CONFIG.kakaoId).then(updateKakaoModalStatus);
+});
+document.getElementById('kakaoModalConfirm').addEventListener('click', closeKakaoModal);
+document.getElementById('kakaoModalOverlay').addEventListener('click', function(e){
+  if(e.target === this){ closeKakaoModal(); }
+});
+
+window.addEventListener('scroll', function(){
+  document.getElementById('toTopFab').classList.toggle('show', window.scrollY > 420);
+});
+
+/* ============================== 초기 실행 ============================== */
+renderProfile();
+renderQuickActions();
+renderFooter();
+renderQr();
+</script>
+</body>
+</html>
